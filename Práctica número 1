@@ -1,3 +1,17 @@
-# FUNCION PARA ESTABLECER CONEXION WIFI
-def do_connect(SSID, PASSWORD):
-import networkglobal sta_ifsta_if =network.WLAN(network.STA_IF) if not sta_if.isconnected(): sta_if.active(True) sta_if.connect(SSID, PASSWORD) print('Conectado a la red', SSID + "...") while not sta_if.isconnected(): passprint('Configuracion de red (IP/netmask/gwDNS):',sta_if.ifconfig())do_connect('clases1', '12345678')
+importar dht
+importar máquina
+importar red
+importar tiempo
+Nombre de la red y contraseña para el Punto de Acceso
+SSID = "PINEDA"
+CONTRASEÑA = "123456789"
+Configuración del punto de acceso
+ap = network.WLAN(network.AP_IF)
+ap.active(True)
+ap.config(essid=SSID, contraseña=CONTRASEÑA)
+ip_address = ap.ifconfig()[0]
+print("ESP32 configurado como Access Point")
+print("Dirección IP del Access Point:", ip_address)
+
+Señal del sensor en el pin 4
+dht_sensor = dht.DHT11(machine.Pin(23))
