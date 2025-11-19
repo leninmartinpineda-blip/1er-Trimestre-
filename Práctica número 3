@@ -13,8 +13,7 @@ time.sleep(0.5)
 print("sensor2 conectado. IP:", wlan.ifconfig() [0])
 Pueden usar otro pin si desean, ej. GPIO4 d = dht.DHT11(Pin(14)) # o Pin(4)
 while True
-try:
-d.measure()
+try:d.measure()
 temp = d.temperature()
 hum = d.humidity()
 payload = f"sensor2:{temp},{hum}"
