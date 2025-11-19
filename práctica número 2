@@ -1,0 +1,10 @@
+import network
+import espnow 
+from machine 
+import Pin import time
+w0 = network.WLAN(network.STA IF)
+w0.active(True)
+e = espnow.ESPNow() e.init()
+receptor_mac = b'\x24\x6F\x28\xXX\xXX\xXX' e.add_peer(receptor_mac)
+while True:
+comando = input("Ingrese LED a activar (rojo, verde, azul) o apagar: ") e.send(receptor_mac, comando) print("Comando enviado:", comando)
