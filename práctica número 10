@@ -1,6 +1,6 @@
 importar red
 importar tiempo
-Crear objeto Wi-Fi en modo estación (cliente)
+Crear objeto Wi-Fi en modo estación(cliente)
 wifi = network.WLAN(network.STA_IF)
 wifi.active(True)
 print("Inicializando WiFi...")
