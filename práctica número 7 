@@ -1,0 +1,22 @@
+importar red,
+importar espnow,
+importar máquina
+Para enviar/recibir datos, debe estar activa una interfaz WLAN.
+`sta = network.WLAN(network.STA_IF)` # O `network.AP_IF` `
+sta.active(True)`
+`sta.disconnect()` # Para ESP8266
+Inicializar ESP-NOW
+esp = espnow.ESPNow()
+esp.active(True)
+pin_led = máquina.Pin(22, máquina.Pin.OUT)
+while True:
+_, msg = esp.recv()
+if msg: # msg == None if timeout in recv()
+if msg == b'ledOn':
+print("Encendiendo el LED")
+led_pin.on()
+elif msg == b'ledOff':
+print("Apagando el LED")
+led_pin.off()
+else:
+print(f"Mensaje desconocido! {msg}")
