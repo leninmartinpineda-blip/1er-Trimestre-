@@ -13,4 +13,5 @@ ip_address = ap.ifconfig()[0] print("ESP32 configurado como Access Point")
 print("Dirección IP del Access Point:", ip_address)
 Señal del sensor en el pin 4 dht_sensor = dht.DHT11(machine.Pin(23))
 while True:
-try:
+try:dht_sensor.measure()
+temperature = dht_sensor.temperature() humidity = dht_sensor.humidity()
